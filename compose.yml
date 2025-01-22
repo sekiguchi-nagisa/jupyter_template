@@ -1,7 +1,7 @@
 services:
   jupyter-lab:
     build: .
-    container_name: jupyter-lab
+    container_name: ${CONTAINER_NAME:-jupyter-lab}
     working_dir: /root/jupyter
     entrypoint: >
       poetry run jupyter lab
@@ -9,9 +9,9 @@ services:
       --ip=0.0.0.0
       --port=8888
       --no-browser
-      --NotebookApp.token=''
+      --NotebookApp.token=${NOTEBOOK_TOKEN:-}
     volumes:
       - ./src:/root/jupyter
       - ./data:/root/data
     ports:
-      - "8888:8888"
+      - "${HOST_PORT:-8888}:8888"
