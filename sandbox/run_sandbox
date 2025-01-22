@@ -1,0 +1,27 @@
+#!/usr/bin/env arsh
+
+var debug = $false
+var file = "."
+
+for $arg in $@ {
+    case $arg {
+    '--debug' => $debug = $true;
+    else => if !$arg.startsWith('-') { $file = $arg; }
+    }
+}
+
+var root = $file.realpath()
+if !(test -d $root) {
+    $root = $root.dirname()
+}
+
+let workdir = "$SCRIPT_DIR/../".realpath()
+
+var name = "sandbox_${$root.basename()}:1"
+echo Dockfile path: "'$root/Dockerfile'"
+echo build docker image: "'$name'"
+
+docker build --network host -t $name -f $root/Dockerfile $workdir || exit $?
+
+docker run --rm --network=host -v ./:/data -it $name /bin/sh
+
