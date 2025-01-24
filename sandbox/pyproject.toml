@@ -7,7 +7,7 @@ authors = [{name = "Nagisa Sekiguchi", email = "s.nagisa.xyz@gmail.com"}]
 requires-python = ">=3.11,<3.12"
 dependencies = [
     "jupyterlab-code-formatter>=3.0.2","jupyterlab>=4.3.1","pandas>=2.2.3", "seaborn>=0.13.2","scikit-learn>=1.5.2","networkx>=3.4.2",
-    "folium>=0.18.0", "mecab-python3>=1.0.10", "unidic-lite>=1.0.8", "openpyxl>=3.1.5", "ipyleaflet>=0.19.2", "polar (>=0.0.127,<0.0.128)"
+    "folium>=0.18.0", "mecab-python3>=1.0.10", "unidic-lite>=1.0.8", "openpyxl>=3.1.5", "ipyleaflet>=0.19.2"
 ]
 
 [tool.poetry]
