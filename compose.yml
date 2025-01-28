@@ -14,4 +14,4 @@ services:
       - ./src:/root/jupyter
       - ./data:/root/data
     ports:
-      - "${HOST_PORT:-8888}:8888"
+      - "127.0.0.1:${HOST_PORT:-8888}:8888"
